@@ -3,7 +3,7 @@ import numpy as np
 
 # ---------- Config ----------
 CSV_PATH = "./Software.csv" 
-K = 100                         # latent factors
+K = 10                         # latent factors
 CLAMP_MIN, CLAMP_MAX = 1.0, 5.0
 
 # ---------- Load ----------
@@ -99,5 +99,5 @@ def mean_reciprocal_rank(ratings_df, R_hat, u2idx, i2idx, k=10):
                 break
     return np.mean(ranks)
 
-mrr = mean_reciprocal_rank(test, R_hat, u2i, i2j, k=100)
+mrr = mean_reciprocal_rank(test, R_hat, u2i, i2j, k=10)
 print("Mean Reciprocal Rank:", round(mrr, 3))
