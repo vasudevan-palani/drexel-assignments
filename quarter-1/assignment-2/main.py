@@ -3,18 +3,18 @@ import numpy as np
 
 # ---------- Config ----------
 CSV_PATH = "./Software.csv" 
-K = 100                              # latent factors
+K = 100                         # latent factors
 CLAMP_MIN, CLAMP_MAX = 1.0, 5.0
 
 # ---------- Load ----------
 dtypes = {"item": str, "user": str, "rating": float, "timestamp": int}
 df = pd.read_csv(CSV_PATH, dtype=dtypes, usecols=["item","user","rating","timestamp"]).dropna()
-
+print(len(df))
 # (Optional) light filtering so SVD is stable; comment out if not needed
 uc = df["user"].value_counts()
 ic = df["item"].value_counts()
-df = df[df["user"].isin(uc[uc >= 5].index)]
-df = df[df["item"].isin(ic[ic >= 5].index)]
+df = df[df["user"].isin(uc[uc >= 2].index)]
+df = df[df["item"].isin(ic[ic >= 2].index)]
 
 # ---------- Chronological split: last=test, prev=val, rest=train ----------
 df = df.sort_values(["user","timestamp"])
@@ -30,6 +30,8 @@ df = df.groupby("user", group_keys=False).apply(split_group)
 train = df[df["split"]=="train"].copy()
 val   = df[df["split"]=="val"].copy()
 test  = df[df["split"]=="test"].copy()
+
+print(df["split"].value_counts())
 
 # ---------- Encode TRAIN users/items ----------
 users = sorted(train["user"].unique())
