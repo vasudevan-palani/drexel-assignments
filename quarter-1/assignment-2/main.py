@@ -28,6 +28,8 @@ def split_group(g):
 
 df = df.groupby("user", group_keys=False).apply(split_group)
 train = df[df["split"]=="train"].copy()
+val   = df[df["split"]=="val"].copy()
+test  = df[df["split"]=="test"].copy()
 
 # ---------- Encode TRAIN users/items ----------
 users = sorted(train["user"].unique())
@@ -76,3 +78,24 @@ print(f"  item      : {it}")
 print(f"  predicted : {pred:.3f}")
 print(f"  actual    : {actual:.3f}" if not np.isnan(actual) else "  actual    : NaN (no rating found)")
 print(f"  deviation : {deviation:.3f}" if not np.isnan(deviation) else "  deviation : NaN")
+
+# ---------- Get Mean reciprocal rank ----------
+def mean_reciprocal_rank(ratings_df, R_hat, u2idx, i2idx, k=10):
+    ranks = []
+    for u in ratings_df["user"].unique():
+        if u not in u2idx: continue
+        u_idx = u2idx[u]
+        # Get actual items user liked (>4 stars)
+        liked_items = set(ratings_df[(ratings_df["user"] == u) & (ratings_df["rating"] >= 4)]["item"])
+        if not liked_items: continue
+        # Sort all items by predicted rating
+        preds = [(it, R_hat[u_idx, i2idx[it]]) for it in i2idx]
+        ranked = sorted(preds, key=lambda x: -x[1])
+        for rank, (it, _) in enumerate(ranked, start=1):
+            if it in liked_items:
+                ranks.append(1.0 / rank)
+                break
+    return np.mean(ranks)
+
+mrr = mean_reciprocal_rank(test, R_hat, u2i, i2j, k=100)
+print("Mean Reciprocal Rank:", round(mrr, 3))
