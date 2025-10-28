@@ -1,0 +1,47 @@
+Project: Assignment 2 (Quarter 1)
+
+This README explains how to install the Python dependencies and run `main.py` for the assignment located in this folder.
+
+Prerequisites
+- Python 3.13+ installed .
+- A POSIX-compatible shell (macOS `zsh` is fine).
+
+Quick start
+
+1. Open a terminal and clone this repo and change the working directory:
+
+	git clone https://github.com/vasudevan-palani/drexel-assignments.git
+    cd drexel-assignments/quarter-1/assignment-2
+
+2. Create and activate a virtual environment:
+
+	python3 -m venv .venv
+	source .venv/bin/activate
+
+3. Install required packages from `requirements.txt`:
+
+	pip install --upgrade pip
+	pip install -r requirements.txt
+
+4. Run the program:
+
+	python main.py
+
+Notes
+- If you hit import errors, ensure the virtual environment is activated and `requirements.txt` was installed successfully.
+
+Troubleshooting
+- To check Python version:
+
+  python --version
+
+- To list installed packages in the active environment:
+
+  pip list
+
+Contact
+- For issues specific to the assignment code, inspect `main.py` and the accompanying files in this directory.
+
+Verification
+- After installing dependencies, running `python main.py` should execute without module import errors. If you want, I can run a quick smoke test here.
+
