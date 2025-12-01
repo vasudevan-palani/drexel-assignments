@@ -1,0 +1,153 @@
+[
+  {
+    "id": "internet_no_connectivity_blinking_orange",
+    "service": "internet",
+    "symptoms": [
+      "no internet",
+      "no connectivity",
+      "blinking orange",
+      "gateway light blinking",
+      "wifi down"
+    ],
+    "keywords": [
+      "no internet",
+      "no connectivity",
+      "blinking orange",
+      "gateway",
+      "wifi down"
+    ],
+    "triage_steps": [
+      "Ask the customer to confirm if all devices are affected or only one.",
+      "Have the customer unplug the gateway power for 30 seconds and plug it back in.",
+      "Wait 5–10 minutes for lights to stabilize.",
+      "Run an equipment/connection test using internal tools or the app.",
+      "If the gateway is online but no internet, escalate to technician visit.",
+      "If an area outage is detected, inform the customer and share ETA."
+    ],
+    "default_severity": "high",
+    "default_channel": "self_service_then_technician"
+  },
+  {
+    "id": "internet_slow_speed_evenings",
+    "service": "internet",
+    "symptoms": [
+      "slow internet",
+      "buffering",
+      "slow in evenings",
+      "laggy",
+      "slower than usual"
+    ],
+    "keywords": [
+      "slow",
+      "slow internet",
+      "buffering",
+      "lag",
+      "evenings"
+    ],
+    "triage_steps": [
+      "Ask which apps or sites are affected and whether wired or WiFi connections are used.",
+      "Have the customer run a speed test using the Xfinity app or website.",
+      "Check for congestion patterns (peak evening hours).",
+      "Verify that the subscribed speed tier matches the customer's expectations.",
+      "Recommend optimizing WiFi placement or using wired connections where possible."
+    ],
+    "default_severity": "medium",
+    "default_channel": "self_service"
+  },
+  {
+    "id": "tv_freezing_or_pixelation",
+    "service": "tv",
+    "symptoms": [
+      "tv freezing",
+      "pixelation",
+      "channels breaking up",
+      "picture glitchy"
+    ],
+    "keywords": [
+      "tv freezing",
+      "pixelation",
+      "glitchy",
+      "channels"
+    ],
+    "triage_steps": [
+      "Ask if the issue happens on all channels or only specific ones.",
+      "Have the customer reboot the TV box and check cabling.",
+      "Check signal levels to the TV box using internal tools.",
+      "If signal issues persist, consider scheduling a technician visit.",
+      "If only specific channels are affected, check for channel-specific outages."
+    ],
+    "default_severity": "medium",
+    "default_channel": "self_service_then_technician"
+  },
+  {
+    "id": "billing_equipment_fee",
+    "service": "billing",
+    "symptoms": [
+      "equipment fee on bill",
+      "unexpected equipment charge",
+      "rental fee"
+    ],
+    "keywords": [
+      "equipment fee",
+      "unexpected charge",
+      "bill",
+      "rental"
+    ],
+    "triage_steps": [
+      "Ask the customer if they recently returned or swapped any equipment.",
+      "Verify which devices are currently listed on the account.",
+      "Check return records for recently returned equipment.",
+      "If a discrepancy is found, escalate to billing adjustment.",
+      "Explain that equipment fees apply when renting modems, gateways, or TV boxes."
+    ],
+    "default_severity": "medium",
+    "default_channel": "chat_agent"
+  },
+  {
+    "id": "billing_general_confusion",
+    "service": "billing",
+    "symptoms": [
+      "bill higher than expected",
+      "dont understand bill",
+      "confusing charges"
+    ],
+    "keywords": [
+      "bill higher",
+      "higher bill",
+      "confusing",
+      "charges"
+    ],
+    "triage_steps": [
+      "Compare current bill to previous month to identify differences.",
+      "Check for promotional discounts that may have expired.",
+      "Check for one-time charges, overages, or new equipment.",
+      "Explain the main drivers of the change in simple terms.",
+      "If still unclear, escalate to billing specialist."
+    ],
+    "default_severity": "low",
+    "default_channel": "chat_agent"
+  },
+  {
+    "id": "home_security_camera_offline",
+    "service": "home_security",
+    "symptoms": [
+      "camera offline",
+      "security camera not working",
+      "cannot see camera"
+    ],
+    "keywords": [
+      "camera offline",
+      "security camera",
+      "home security"
+    ],
+    "triage_steps": [
+      "Confirm if the internet connection is stable.",
+      "Ask the customer to power cycle the camera and gateway.",
+      "Check if the device appears online in internal tools.",
+      "If the camera remains offline, schedule technician or device replacement.",
+      "For security issues, treat with higher priority if it's a complete outage."
+    ],
+    "default_severity": "high",
+    "default_channel": "technician_visit"
+  }
+]
