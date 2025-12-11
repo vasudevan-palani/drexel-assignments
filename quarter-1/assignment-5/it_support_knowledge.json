@@ -1,0 +1,281 @@
+[
+  {
+    "id": "KB-001",
+    "area": "Network/VPN",
+    "keywords": ["vpn", "remote", "tunnel", "anyconnect", "globalprotect", "cannot connect vpn"],
+    "problem_pattern": "User cannot connect to corporate VPN from home.",
+    "triage_steps": [
+      "Confirm the user has general internet connectivity by asking them to open a public website.",
+      "Ask for the exact VPN client name and full error message shown.",
+      "Have the user restart the device and home router, then try again.",
+      "Ask the user to test on another network (mobile hotspot vs home Wi-Fi) if possible.",
+      "If the issue persists, verify in identity/access tools that the user is enabled for VPN."
+    ],
+    "known_fix": "Most connection failures are resolved by confirming general internet access, switching to a less restrictive network, and updating or reinstalling the VPN client."
+  },
+  {
+    "id": "KB-002",
+    "area": "Network/VPN",
+    "keywords": ["vpn drops", "vpn disconnects", "tunnel drops", "vpn unstable"],
+    "problem_pattern": "VPN connects but frequently disconnects or becomes unstable.",
+    "triage_steps": [
+      "Check whether the user is on weak Wi-Fi by asking about signal strength and distance from the router.",
+      "Have the user move closer to the router or use wired ethernet if available.",
+      "Ask if other internet applications (video streaming, browsing) also show instability.",
+      "Temporarily disable third-party firewall or security software to test.",
+      "If only this user is impacted, collect VPN client logs and escalate to network support."
+    ],
+    "known_fix": "Unstable VPN sessions are usually caused by poor Wi-Fi or local firewall rules. Improving signal strength or using a wired connection often stabilizes the link."
+  },
+  {
+    "id": "KB-003",
+    "area": "Network/WiFi",
+    "keywords": ["wifi", "wi-fi", "wireless", "ssid", "cannot see wifi", "wifi not showing"],
+    "problem_pattern": "User cannot see or connect to the corporate Wi-Fi SSID while in the office.",
+    "triage_steps": [
+      "Confirm the user is in a location where the corporate SSID should be available.",
+      "Ask whether other users nearby can see and connect to the same SSID.",
+      "Check that Wi-Fi is turned on and airplane mode is off on the device.",
+      "Have the user toggle Wi-Fi off and on, then rescan for networks.",
+      "If only this device is affected, collect adapter details and escalate to the network or desktop team."
+    ],
+    "known_fix": "Most cases resolve by re-enabling the Wi-Fi adapter, rescanning for networks, and letting the device reconnect to the corporate SSID."
+  },
+  {
+    "id": "KB-004",
+    "area": "Access/Accounts",
+    "keywords": ["password", "locked out", "account locked", "too many attempts", "sign in failed"],
+    "problem_pattern": "User account is locked after too many failed sign-in attempts.",
+    "triage_steps": [
+      "Verify the username or email address the user is entering on the sign-in page.",
+      "Confirm whether the user recently changed their password and might be using an old one.",
+      "Check the directory or identity system for lockout status and timers.",
+      "If allowed, unlock the account and reset the password to a temporary value.",
+      "Remind the user to update the password on all devices and apps to avoid re-locking."
+    ],
+    "known_fix": "Unlocking the account, resetting the password, and clearing old cached credentials on all devices usually resolves account lockouts."
+  },
+  {
+    "id": "KB-005",
+    "area": "Access/Accounts",
+    "keywords": ["mfa", "2fa", "two factor", "cannot receive code", "authenticator", "sms code"],
+    "problem_pattern": "User is unable to complete multi-factor authentication (MFA).",
+    "triage_steps": [
+      "Ask how the user usually receives MFA (authenticator app, SMS, call, token).",
+      "Confirm the device used for MFA is available, powered on, and has network connectivity.",
+      "Have the user check time and date settings if using an authenticator app.",
+      "If allowed, reset the user's MFA registration or provide a temporary bypass code.",
+      "Update the registered phone number or MFA method if it has changed."
+    ],
+    "known_fix": "Most MFA failures are fixed by resynchronizing the authenticator app or updating the registered phone or method, then re-enrolling MFA."
+  },
+  {
+    "id": "KB-006",
+    "area": "Email/Collaboration",
+    "keywords": ["outlook", "email not sending", "email not receiving", "cannot send email", "mailbox"],
+    "problem_pattern": "User cannot send or receive email in Outlook desktop.",
+    "triage_steps": [
+      "Verify that internet access works by opening a browser.",
+      "Ask if email works in webmail; if yes, the issue is local to Outlook.",
+      "Check whether Outlook is in 'Working Offline' mode and turn it off if enabled.",
+      "Have the user close and reopen Outlook and note any send/receive error codes.",
+      "If needed, repair or recreate the Outlook profile following standard procedure."
+    ],
+    "known_fix": "Most Outlook issues are resolved by disabling 'Work Offline', restarting Outlook, and repairing or recreating the mail profile."
+  },
+  {
+    "id": "KB-007",
+    "area": "Email/Collaboration",
+    "keywords": ["spam", "junk", "phishing", "suspicious email", "report phishing"],
+    "problem_pattern": "User received a suspicious or phishing email.",
+    "triage_steps": [
+      "Instruct the user not to click any links or open attachments in the email.",
+      "Ask the user to report or forward the message to the security reporting mailbox if available.",
+      "If the user already clicked a link or entered credentials, force an immediate password reset.",
+      "Have the user delete the email and empty the Deleted Items folder.",
+      "Escalate to the security team if the email appears targeted or high risk."
+    ],
+    "known_fix": "Protection is achieved by reporting the message, resetting credentials if needed, and removing the email from all folders."
+  },
+  {
+    "id": "KB-008",
+    "area": "Software/Application",
+    "keywords": ["application not launching", "app not opening", "program crashes", "stopped working"],
+    "problem_pattern": "Business application will not launch or immediately crashes.",
+    "triage_steps": [
+      "Ask if the issue started after a recent update, change, or new installation.",
+      "Have the user restart the device and try launching the application again.",
+      "Verify that the user has the correct license or permission for the application.",
+      "Reinstall or repair the application from the approved software source.",
+      "If crashes continue, capture error details and escalate to the application team."
+    ],
+    "known_fix": "Reinstalling or repairing the application and confirming license or permission usually resolves launch failures."
+  },
+  {
+    "id": "KB-009",
+    "area": "Software/Application",
+    "keywords": ["slow application", "app slow", "laggy", "performance issue"],
+    "problem_pattern": "Business application is unusually slow or unresponsive.",
+    "triage_steps": [
+      "Ask whether other colleagues are experiencing similar slowness.",
+      "Check the user's CPU, memory, and disk usage while the app is running.",
+      "Have the user close unnecessary applications and browser tabs to free resources.",
+      "Ask the user to test on a different network if possible to rule out network latency.",
+      "Check for known incidents or maintenance affecting the application."
+    ],
+    "known_fix": "Performance issues often improve after freeing device resources, closing background apps, and confirming backend services are healthy."
+  },
+  {
+    "id": "KB-010",
+    "area": "Hardware/Laptop",
+    "keywords": ["laptop won't start", "no power", "black screen", "won't turn on"],
+    "problem_pattern": "Laptop does not power on or only shows a black screen.",
+    "triage_steps": [
+      "Ask if any power or battery lights appear when the power button is pressed.",
+      "Have the user disconnect all external devices and docks.",
+      "Ask the user to plug in the power adapter and confirm any charging light.",
+      "Have the user hold the power button for 15 to 20 seconds to force a hard reset.",
+      "If the device still does not power on, collect serial number and arrange hardware service."
+    ],
+    "known_fix": "Many no-power issues are resolved with a hard reset and removing external peripherals; persistent failures require hardware repair."
+  },
+  {
+    "id": "KB-011",
+    "area": "Hardware/Laptop",
+    "keywords": ["overheating", "hot laptop", "fan loud", "thermal issue"],
+    "problem_pattern": "Laptop is overheating or the fan runs constantly at high speed.",
+    "triage_steps": [
+      "Ask where the laptop is placed and check for blocked air vents.",
+      "Have the user move the device to a hard, flat surface with good airflow.",
+      "Ask the user to close heavy applications and many browser tabs.",
+      "Check for and install pending OS and firmware updates.",
+      "If heat persists, schedule cleaning or hardware inspection."
+    ],
+    "known_fix": "Improving airflow, closing heavy workloads, and updating firmware typically reduces overheating complaints."
+  },
+  {
+    "id": "KB-012",
+    "area": "Hardware/Peripherals",
+    "keywords": ["printer not working", "cannot print", "printer offline", "printing issue"],
+    "problem_pattern": "User cannot print to a network or local printer.",
+    "triage_steps": [
+      "Ask whether other users can print to the same printer.",
+      "Verify that the printer is powered on and not showing error lights or paper jams.",
+      "Check that the user is selecting the correct printer in the print dialog.",
+      "Have the user restart the device and clear any stuck print jobs.",
+      "If needed, reinstall or remap the printer using the standard method."
+    ],
+    "known_fix": "Most printer issues are fixed by selecting the correct printer, clearing stalled jobs, and reinstalling the printer mapping or driver."
+  },
+  {
+    "id": "KB-013",
+    "area": "Conferencing/Meetings",
+    "keywords": ["no audio", "cannot hear", "microphone not working", "zoom audio", "teams audio"],
+    "problem_pattern": "User cannot hear or be heard in an online meeting.",
+    "triage_steps": [
+      "Ask which meeting platform is being used (Teams, Zoom, Webex, etc.).",
+      "Check that the correct microphone and speakers are selected in the meeting settings.",
+      "Have the user run the app's built-in audio test if available.",
+      "Ask the user to disconnect and reconnect USB headsets or docks.",
+      "Confirm that system volume and mute settings are correct."
+    ],
+    "known_fix": "Selecting the correct audio devices and reconnecting headsets usually resolves meeting audio issues."
+  },
+  {
+    "id": "KB-014",
+    "area": "Conferencing/Meetings",
+    "keywords": ["camera not working", "no video", "webcam", "cannot start video"],
+    "problem_pattern": "User's camera does not work in video meetings.",
+    "triage_steps": [
+      "Ask if the camera works in another app such as the OS camera app.",
+      "Check whether the meeting app has camera permission in OS privacy settings.",
+      "Have the user close other apps that might be using the camera.",
+      "Ask the user to disconnect and reconnect external webcams if used.",
+      "Reinstall or update the conferencing application if needed."
+    ],
+    "known_fix": "Granting camera permissions and closing conflicting apps typically fixes video issues; persistent failures may indicate hardware problems."
+  },
+  {
+    "id": "KB-015",
+    "area": "Storage/File Services",
+    "keywords": ["cannot access shared drive", "network drive", "file share", "access denied"],
+    "problem_pattern": "User cannot access a network share or mapped drive.",
+    "triage_steps": [
+      "Ask for the exact path or name of the shared drive.",
+      "Confirm whether other users can access the same location.",
+      "Have the user disconnect and remap the network drive with their current credentials.",
+      "Check permissions on the share for the user's group or role.",
+      "If many users are affected, check file server status or escalate to infrastructure."
+    ],
+    "known_fix": "Remapping the drive with updated credentials and verifying share permissions resolve most network drive issues."
+  },
+  {
+    "id": "KB-016",
+    "area": "Storage/File Services",
+    "keywords": ["onedrive sync", "sharepoint sync", "files not syncing", "cloud storage"],
+    "problem_pattern": "Cloud storage client (OneDrive/SharePoint) is not syncing files.",
+    "triage_steps": [
+      "Ask the user to check sync status icons and any error messages.",
+      "Verify the user is signed into the client with the correct account.",
+      "Confirm that there is enough local disk space.",
+      "Have the user pause and resume sync or restart the sync client.",
+      "If a specific file fails, check for invalid characters or path length issues."
+    ],
+    "known_fix": "Signing in with the correct account, fixing problematic files, and restarting the client usually restores syncing."
+  },
+  {
+    "id": "KB-017",
+    "area": "Desktop Environment",
+    "keywords": ["blue screen", "bsod", "system crash", "windows stop code"],
+    "problem_pattern": "Windows laptop frequently shows a blue screen (BSOD).",
+    "triage_steps": [
+      "Ask how often the blue screen occurs and if it follows a specific action.",
+      "Collect the stop code or error message from the blue screen if available.",
+      "Check for and install pending Windows and driver updates.",
+      "Ask if any new hardware or software was installed before the crashes started.",
+      "If crashes continue, escalate with logs and dump files to desktop engineering."
+    ],
+    "known_fix": "Many BSOD issues are resolved by updating drivers and Windows or rolling back a recently installed driver."
+  },
+  {
+    "id": "KB-018",
+    "area": "Desktop Environment",
+    "keywords": ["temporary profile", "user profile cannot be loaded", "profile issue"],
+    "problem_pattern": "User signs in but receives a temporary profile or profile load error.",
+    "triage_steps": [
+      "Ask if this is the first time the user has signed into the device.",
+      "Check system logs for profile service errors.",
+      "Create a new profile for the user and have them sign in to it.",
+      "Migrate essential data (desktop, documents, browser favorites) from the old profile if accessible."
+    ],
+    "known_fix": "Creating a new user profile and migrating important data typically resolves recurring profile errors."
+  },
+  {
+    "id": "KB-019",
+    "area": "Security/Endpoint Protection",
+    "keywords": ["antivirus", "endpoint protection", "blocked application", "quarantine"],
+    "problem_pattern": "Endpoint protection is blocking a legitimate application.",
+    "triage_steps": [
+      "Ask for the application name, version, and installation path.",
+      "Review endpoint protection logs for the detection type and rule.",
+      "Confirm with security or app owners that the application is approved.",
+      "If allowed, restore the application from quarantine and add an exception.",
+      "Submit a false positive report to the security team if needed."
+    ],
+    "known_fix": "Restoring the app from quarantine and adding a controlled exception, after security approval, usually resolves blocking of legitimate software."
+  },
+  {
+    "id": "KB-020",
+    "area": "Mobile/Email",
+    "keywords": ["mobile email", "phone email not syncing", "cannot get email on phone"],
+    "problem_pattern": "User's mobile device is not syncing corporate email.",
+    "triage_steps": [
+      "Confirm the device OS and mail client in use.",
+      "Verify that email works on desktop or webmail for the same account.",
+      "Ask the user to check network connectivity on the mobile device.",
+      "Have the user remove and re-add the corporate mail profile using the official method.",
+      "Ensure the device is enrolled in required mobile device management if applicable."
+    ],
+    "known_fix": "Removing and re-adding the corporate mail account via the approved setup process resolves most mobile email sync issues."
+  }
+]
