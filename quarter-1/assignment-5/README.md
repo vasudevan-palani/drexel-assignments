@@ -4,10 +4,10 @@ This folder contains a simple CLI tool for triaging IT support tickets using:
 
 - A CNN model to predict ticket priority (`train_cnn_priority.py` → `priority_cnn_model.keras`, `priority_tokenizer.pkl`, `priority_label_encoder.pkl`).
 - A small, local knowledge base (`it_support_knowledge.json`) used for simple RAG (keyword overlap retrieval).
-- An LLM-based triage assistant that calls OpenAI-style chat completions (wrapper used in `main3.py`).
+- An LLM-based triage assistant that calls OpenAI-style chat completions (wrapper used in `main.py`).
 
 Files
-- `main3.py` - CLI triage application (entry point). Run this after you have the trained model artifacts and an `OPENAI_API_KEY`.
+- `main.py` - CLI triage application (entry point). Run this after you have the trained model artifacts and an `OPENAI_API_KEY`.
 - `train_cnn_priority.py` - Script to train a CNN priority classifier from a CSV dataset.
 - `it_support_knowledge.json` - Local knowledge base used by the RAG component.
 
@@ -77,14 +77,14 @@ python train_cnn_priority.py
 
 These files are used by the CLI to predict ticket priority.
 
-Running the CLI triage tool (`main3.py`)
+Running the CLI triage tool (`main.py`)
 
-1. Ensure the model artifact files and `it_support_knowledge.json` are present in the same folder as `main3.py`.
+1. Ensure the model artifact files and `it_support_knowledge.json` are present in the same folder as `main.py`.
 2. Ensure `OPENAI_API_KEY` is set in your environment.
 3. Run the CLI:
 
 ```bash
-python main3.py
+python main.py
 ```
 
 What to expect
@@ -103,11 +103,11 @@ Quick test (without training the model)
 If you don't want to train a CNN but still want to test the LLM and RAG parts, you can do one of the following:
 
 - Create dummy artifacts that match the expected API shape (advanced), or
-- Temporarily modify `main3.py` to skip loading the CNN and set `current_priority` to a default (e.g., `"medium"`).
+- Temporarily modify `main.py` to skip loading the CNN and set `current_priority` to a default (e.g., `"medium"`).
 
 Example quick test:
 
-1. Edit `main3.py` and inside `run_cli()` before calling `load_priority_model()` add the following lines to skip the model load (for quick LLM/RAG testing only):
+1. Edit `main.py` and inside `run_cli()` before calling `load_priority_model()` add the following lines to skip the model load (for quick LLM/RAG testing only):
 
 ```python
 # Quick dev/testing: skip CNN priority prediction
@@ -115,7 +115,7 @@ Example quick test:
 # current_priority = "medium"
 ```
 
-2. Run `python main3.py` and enter a sample ticket description such as:
+2. Run `python main.py` and enter a sample ticket description such as:
 
 ```
 User cannot connect to VPN from home. AnyConnect shows "connection failed".
@@ -137,7 +137,7 @@ Security and cost notes
 Extending this project
 
 - Replace the keyword RAG with an embedding-based retriever for higher-quality matches.
-- Add a small web UI or Slack bot wrapper around `main3.py`.
+- Add a small web UI or Slack bot wrapper around `main.py`.
 - Add unit tests for the tokenizer/prediction pipeline and RAG functions.
 
 License
